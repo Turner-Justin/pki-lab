@@ -1,0 +1,14 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: pki-nginx
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+    volumes:
+      - ./nginx:/etc/nginx
+      - ./certs:/certs
+    
+    restart: unless-stopped
